@@ -65,8 +65,8 @@ public class Pelicula {
         int filaSeleccionada = Character.getNumericValue(eleccion.charAt(0));
         char letraSeleccionada = eleccion.charAt(1);
 
-        if (filaSeleccionada < 1 || filaSeleccionada > 8
-                || letraSeleccionada < 'A' || letraSeleccionada > 'I') {
+        if (filaSeleccionada < 1 && filaSeleccionada > 8
+                && letraSeleccionada < 'A' && letraSeleccionada > 'I') {
             System.out.println("Asiento fuera de rango.");
             return false;
         }
@@ -87,7 +87,8 @@ public class Pelicula {
         persona.dinero = soloNumeros("Ingrese aquí el pago de su boleto: ");
 
         if (persona.dinero < precio) {
-            System.out.println("No tienes el dinero suficiente para completar la compra.");
+            System.out.println("No tienes el dinero suficiente para "
+                    + "completar la compra.");
             System.out.println("Por favor, ingresa el dinero completo: ");
             pagoVoleto();
         } else if (persona.dinero > precio) {
@@ -111,7 +112,8 @@ public class Pelicula {
         if (persona.edadPersona < edadMinima) {
             System.out.println("No tienes la edad mínima para ver la película.");
         } else {
-            System.out.println("¡Perfecto! Cumples con la edad mínima para ver la película.");
+            System.out.println("¡Perfecto! Cumples con la edad mínima para ver "
+                    + "la película.");
             pagoVoleto();
             reservar();
         }
